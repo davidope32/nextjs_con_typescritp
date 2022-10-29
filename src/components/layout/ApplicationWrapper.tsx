@@ -14,13 +14,15 @@ export const ApplicationWrapper: FC<PropsWithChildren<TProps>> = ({
   description,
   children,
 }) => {
+
+  const titulo = `${title} | League of Legends`
   return (
     <div className="bg-black min-h-screen flex flex-col" >
-
+      
     <Head>
-        <title>{title} |LOL</title>
+        <title>{titulo}</title>
         {description && <meta name="description" content={description} />}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.png" />
     </Head>
 
     <header className="bg-white h-20">

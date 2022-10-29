@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import Heroe from "./heroe/Heroe"
 
 export interface IHero{
-"id": string |null
+"id": string
 "key": string |null
 "name": string 
 "title": string |null
 "tags": [ string |null, string |null]
 
 "stats": {
-    "hp":number |null
+    "hp":number 
     "hpperlevel": number |null
     "mp": number |null
     "mpperlevel":number |null
@@ -40,25 +40,19 @@ export interface IHero{
     
 }
 
-const useHero = () =>{
-    const [heroes, setHeroes] = useState<IHero[]>([])
-    useEffect(()=>{
-        fetch(process.env.NEXT_PUBLIC_API_URL+"/heroes")
-        .then((res)=>res.json())
-        .then((data:IHero[])=> setHeroes(data))
-        .catch((error)=>console.error(error))
+interface TProps {
+    heroes: IHero[],
+   
+  }
+  
 
-    }, [])
+
+export const Herolist = ({heroes}: TProps) =>{
     
-    return heroes
-}
-
-export const Herolist = () =>{
-    const heroes= useHero()
      return( 
-     <div className="flex flex-col justity-center text-white items-center p-8">
+     <div className="flex flex-col justity-center text-white items-center p-6">
         <ul className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-col-5 xl:grid-cols-6 gap-3"> 
-            {heroes.map((heroes)=>(
+            {heroes?.map((heroes)=>(
                 <Heroe key={heroes.id} heroe={heroes}/>
 
             ))}

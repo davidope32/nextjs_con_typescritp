@@ -6,7 +6,9 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
+    "start-test-server": "json-server ./testserver/data.json -p 3000",
     "lint": "next lint"
+    
   },
   "dependencies": {
     "next": "12.3.1",
