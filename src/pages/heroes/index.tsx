@@ -27,9 +27,9 @@ export default Heroes;
 
 export const getStaticProps: GetStaticProps = async(context)=>{
  
-   const heroes=await fetch(process.env.NEXT_PUBLIC_API_URL+"/heroes")
-    .then((res)=>res.json())
-    .catch((error)=>console.error(error))
+  const heroes=await fetch(process.env.NEXT_PUBLIC_API_URL+"/heroes")
+  .then((res)=>res.json())
+  .catch((error)=>console.error(error))
 
    
 
