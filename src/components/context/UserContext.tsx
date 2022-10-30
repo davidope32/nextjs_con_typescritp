@@ -1,35 +1,39 @@
 import React, { createContext, PropsWithChildren, ReactNode, useState } from 'react';
-
+/*
 export type UserDetail = {
+  nombre: string,
   email: string,
-  status: {
-    enabled: boolean
-  }
+  region: string
+
 }
+*/
+
 export type UserContextProps =  {
   userName: string,
   setUsername: (username:string)=>void
-  userDetail:  UserDetail
-  setUserDetail: (userDetail: UserDetail)=>void
+  userEmail:  string
+  setUserEmail: (userEmail: string)=>void
+  userRegion:  string
+  setUserRegion: (userRegion: string)=>void
+
 }
 
 export const userContext = createContext<UserContextProps>({} as UserContextProps);
 
 export const UserContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
-  const [userName, setUsername] = useState('');
-  const [userDetail, setUserDetail] = useState<UserDetail>({
-    email: 'instructor@rootsta.com',
-    status: {
-      enabled: true
-    }
-  })
+  const [userName, setUsername] = useState('No registrado');
+  const [userEmail, setUserEmail] = useState('');
+  const [userRegion, setUserRegion] = useState('Elige tu region');
+
 
   return (<userContext.Provider value={{
     userName,
     setUsername,
-    userDetail,
-    setUserDetail
+    userEmail,
+    setUserEmail,
+    userRegion,
+    setUserRegion
   }}>
     {children}
   </userContext.Provider>);

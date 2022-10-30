@@ -4,12 +4,11 @@ import Image from "next/image"
 import { userContext, UserContextProps } from '../context/UserContext';
 export const Nav:FC =()=>{
 
-const { userName, setUsername, userDetail } = useContext<UserContextProps>(userContext);
+const { userName, userEmail, userRegion } = useContext<UserContextProps>(userContext);
 return (
 <div >
 <nav className="w-full flex items-center justify-between flex-wrap bg-teal-500 p-6">
 <div className="flex items-center flex-shrink-0 text-white mr-6">
-
 <span className="font-bold text-xl tracking-tight hover:text-white mr-4">League-RootLab</span>
 <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
 <div className="text-sm lg:flex-grow">
@@ -23,13 +22,22 @@ return (
   </div>  
   </div>
 
-<div className=" font-bold justify-right">
+<div className=" font-bold float-right">
+  <ol className="justify-self-center">
+    
+      {userName && <li className="font-bold text-1xl"><span>{userName}</span></li>}
+      {!userName && <li className="font-bold text-1xl"> <span >No registrado</span>  </li>  }
+
+    <li className="text-white text-1xl"><span>{ userEmail }</span>  </li>
+    <li className="italic text-white text-sm">  <span>{ userRegion }</span></li>
+
+  </ol>
 
 
-{userName && <span>El usuario es {userName}</span>}
-        {!userName && <span>No hay sesión</span>}
-        <span>{ userDetail.status.enabled }</span>
-        <span>{ userDetail.email }</span>
+
+       
+       
+      
 
       </div>
   

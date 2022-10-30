@@ -30,6 +30,8 @@ export const ApplicationWrapper: FC<PropsWithChildren<TProps>> = ({
     </header>
 
     <main className="grow flex flex-col text-white">
+      <br/>
+      <br/>
         {children}
         
     </main>
